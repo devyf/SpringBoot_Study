@@ -1,0 +1,26 @@
+person:
+  userName: zhangsan  # String
+  boss: true  # Boolean
+  birth : 1990/1/12  # Date
+  age: 30  # Integer
+  pet:  # Pet
+    name: 阿杰  # String
+    weight: 43  # double
+  interests: [足球, 篮球, 游泳]  # String[]
+  animal:  # List<String>
+    - jerry
+    - mario
+  score:   # Map<String, Object>
+    chinese:
+      first: 30
+      second: 49
+      third: 56
+    math: [134, 145, 149]
+    english: {first: 120, second: 135}
+  salarys: [3999, 4999.98, 5999.99]  # Set<Double>
+  allPets:  # Map<String, List<Pet>>
+    sick:
+      - {name: tom, weight: 32}
+      - {name: jerry,weight: 47}
+    health: [{name: mario,weight: 47}]
+
