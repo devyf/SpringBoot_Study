@@ -3,6 +3,8 @@ person:
   boss: true  # Boolean
   birth : 1990/1/12  # Date
   age: 30  # Integer
+  #email: 2416675232@qq.com
+  email: zhansee
   pet:  # Pet
     name: 阿杰  # String
     weight: 43  # double
