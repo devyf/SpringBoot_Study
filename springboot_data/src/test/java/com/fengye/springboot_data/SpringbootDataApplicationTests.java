@@ -20,5 +20,4 @@ class SpringbootDataApplicationTests {
         Connection connection = dataSource.getConnection();
         System.out.println(connection);
     }
-
 }
