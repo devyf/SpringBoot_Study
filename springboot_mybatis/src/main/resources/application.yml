@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    username: root
+    password: admin
+    #假如时区报错，增加时区配置serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/mybatis02_0322?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  #config-location: classpath:mybatis/mybatis-config.xml  使用了configuration注解则无需再指定mybatis-config.xml文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:   #指定mybatis全局配置文件中的相关配置项
+    map-underscore-to-camel-case: true
+

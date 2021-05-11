@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace表示当前mapper的唯一标识：一般使用domain的全路径名+Mapper来命名-->
+<mapper namespace="com.fengye.springboot_mybatis.mapper.UserMapper">
+    <!--id：方法表示，一般配置对应的方法；
+        resultType：表示该方法有返回，返回需要封装到对应实体的类型-->
+    <select id="findAllUsers" resultType="com.fengye.springboot_mybatis.entity.User">
+        select * from user
+    </select>
+
+    <insert id="insert" parameterType="com.fengye.springboot_mybatis.entity.User">
+        insert into user(id, username, password) values (#{id}, #{username}, #{password})
+    </insert>
+
+    <update id="update" parameterType="com.fengye.springboot_mybatis.entity.User">
+        update user set username = #{username}, password = #{password} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
