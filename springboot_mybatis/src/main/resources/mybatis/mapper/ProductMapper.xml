@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengye.springboot_mybatis.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.fengye.springboot_mybatis.entity.Product">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="productName" jdbcType="VARCHAR" property="productname" />
+    <result column="dir_id" jdbcType="BIGINT" property="dirId" />
+    <result column="salePrice" jdbcType="DOUBLE" property="saleprice" />
+    <result column="supplier" jdbcType="VARCHAR" property="supplier" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="cutoff" jdbcType="DOUBLE" property="cutoff" />
+    <result column="costPrice" jdbcType="DOUBLE" property="costprice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, productName, dir_id, salePrice, supplier, brand, cutoff, costPrice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    insert into product (id, productName, dir_id, 
+      salePrice, supplier, brand, 
+      cutoff, costPrice)
+    values (#{id,jdbcType=BIGINT}, #{productname,jdbcType=VARCHAR}, #{dirId,jdbcType=BIGINT}, 
+      #{saleprice,jdbcType=DOUBLE}, #{supplier,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{cutoff,jdbcType=DOUBLE}, #{costprice,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productname != null">
+        productName,
+      </if>
+      <if test="dirId != null">
+        dir_id,
+      </if>
+      <if test="saleprice != null">
+        salePrice,
+      </if>
+      <if test="supplier != null">
+        supplier,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="cutoff != null">
+        cutoff,
+      </if>
+      <if test="costprice != null">
+        costPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="dirId != null">
+        #{dirId,jdbcType=BIGINT},
+      </if>
+      <if test="saleprice != null">
+        #{saleprice,jdbcType=DOUBLE},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="cutoff != null">
+        #{cutoff,jdbcType=DOUBLE},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    update product
+    <set>
+      <if test="productname != null">
+        productName = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="dirId != null">
+        dir_id = #{dirId,jdbcType=BIGINT},
+      </if>
+      <if test="saleprice != null">
+        salePrice = #{saleprice,jdbcType=DOUBLE},
+      </if>
+      <if test="supplier != null">
+        supplier = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="cutoff != null">
+        cutoff = #{cutoff,jdbcType=DOUBLE},
+      </if>
+      <if test="costprice != null">
+        costPrice = #{costprice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    update product
+    set productName = #{productname,jdbcType=VARCHAR},
+      dir_id = #{dirId,jdbcType=BIGINT},
+      salePrice = #{saleprice,jdbcType=DOUBLE},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      cutoff = #{cutoff,jdbcType=DOUBLE},
+      costPrice = #{costprice,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.fengye.springboot_mybatis.entity.Product">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="productName" jdbcType="VARCHAR" property="productname" />
+    <result column="dir_id" jdbcType="BIGINT" property="dirId" />
+    <result column="salePrice" jdbcType="DOUBLE" property="saleprice" />
+    <result column="supplier" jdbcType="VARCHAR" property="supplier" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="cutoff" jdbcType="DOUBLE" property="cutoff" />
+    <result column="costPrice" jdbcType="DOUBLE" property="costprice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, productName, dir_id, salePrice, supplier, brand, cutoff, costPrice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    insert into product (id, productName, dir_id, 
+      salePrice, supplier, brand, 
+      cutoff, costPrice)
+    values (#{id,jdbcType=BIGINT}, #{productname,jdbcType=VARCHAR}, #{dirId,jdbcType=BIGINT}, 
+      #{saleprice,jdbcType=DOUBLE}, #{supplier,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{cutoff,jdbcType=DOUBLE}, #{costprice,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productname != null">
+        productName,
+      </if>
+      <if test="dirId != null">
+        dir_id,
+      </if>
+      <if test="saleprice != null">
+        salePrice,
+      </if>
+      <if test="supplier != null">
+        supplier,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="cutoff != null">
+        cutoff,
+      </if>
+      <if test="costprice != null">
+        costPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="dirId != null">
+        #{dirId,jdbcType=BIGINT},
+      </if>
+      <if test="saleprice != null">
+        #{saleprice,jdbcType=DOUBLE},
+      </if>
+      <if test="supplier != null">
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="cutoff != null">
+        #{cutoff,jdbcType=DOUBLE},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    update product
+    <set>
+      <if test="productname != null">
+        productName = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="dirId != null">
+        dir_id = #{dirId,jdbcType=BIGINT},
+      </if>
+      <if test="saleprice != null">
+        salePrice = #{saleprice,jdbcType=DOUBLE},
+      </if>
+      <if test="supplier != null">
+        supplier = #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="cutoff != null">
+        cutoff = #{cutoff,jdbcType=DOUBLE},
+      </if>
+      <if test="costprice != null">
+        costPrice = #{costprice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    update product
+    set productName = #{productname,jdbcType=VARCHAR},
+      dir_id = #{dirId,jdbcType=BIGINT},
+      salePrice = #{saleprice,jdbcType=DOUBLE},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      cutoff = #{cutoff,jdbcType=DOUBLE},
+      costPrice = #{costprice,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.fengye.springboot_mybatis.entity.Product">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="color" jdbcType="VARCHAR" property="color" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="smallPic" jdbcType="VARCHAR" property="smallpic" />
+    <result column="costPrice" jdbcType="DECIMAL" property="costprice" />
+    <result column="salePrice" jdbcType="DECIMAL" property="saleprice" />
+    <result column="types_id" jdbcType="BIGINT" property="typesId" />
+    <result column="unit_id" jdbcType="BIGINT" property="unitId" />
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, color, pic, smallPic, costPrice, salePrice, types_id, unit_id, brand_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    insert into product (id, name, color, 
+      pic, smallPic, costPrice, 
+      salePrice, types_id, unit_id, 
+      brand_id)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=VARCHAR}, #{smallpic,jdbcType=VARCHAR}, #{costprice,jdbcType=DECIMAL}, 
+      #{saleprice,jdbcType=DECIMAL}, #{typesId,jdbcType=BIGINT}, #{unitId,jdbcType=BIGINT}, 
+      #{brandId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="smallpic != null">
+        smallPic,
+      </if>
+      <if test="costprice != null">
+        costPrice,
+      </if>
+      <if test="saleprice != null">
+        salePrice,
+      </if>
+      <if test="typesId != null">
+        types_id,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="smallpic != null">
+        #{smallpic,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null">
+        #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="typesId != null">
+        #{typesId,jdbcType=BIGINT},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="smallpic != null">
+        smallPic = #{smallpic,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        costPrice = #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null">
+        salePrice = #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="typesId != null">
+        types_id = #{typesId,jdbcType=BIGINT},
+      </if>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fengye.springboot_mybatis.entity.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      smallPic = #{smallpic,jdbcType=VARCHAR},
+      costPrice = #{costprice,jdbcType=DECIMAL},
+      salePrice = #{saleprice,jdbcType=DECIMAL},
+      types_id = #{typesId,jdbcType=BIGINT},
+      unit_id = #{unitId,jdbcType=BIGINT},
+      brand_id = #{brandId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
